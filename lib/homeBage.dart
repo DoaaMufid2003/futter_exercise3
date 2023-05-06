@@ -191,390 +191,340 @@ class _HomeBageState extends State<HomeBage> {
               ),
             ),
           ),
-          
-          Expanded(
-            child: Container(
-              margin: EdgeInsets.all(10),
-              child: Stack(
-                children: [
-                  Expanded(
-                    child: Center(
-                      child: Container(
-                        transform:
-                            Matrix4.translationValues(-10.0, -10.0, -100.0),
-                        margin: EdgeInsets.only(bottom: 500),
-                        height: 150,
-                        width: 500,
-                        child: PageView.builder(
-                            onPageChanged: (value) {
-                              setState(() {
-                                index = value;
-                              });
-                            },
-                            itemCount: images.length,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                width: 500,
-                                height: 150,
-                                margin: EdgeInsets.fromLTRB(30, 10, 0, 0),
-                                child: Stack(
-                                  children: [
-                                    Container(
-                                      // height: double.infinity,
-                                      alignment: Alignment.center,
-                                      // This is needed
-                                      child: Image.asset(
-                                        images[index],
-                                        fit: BoxFit.fill,
-                                        // width: 300,
-                                        // height: 300,
-                                      ),
-                                    ),
-                                    // Container(
-                                    //     width: 500,
-                                    //     height: 150,
-                                    //     child: Image.asset(
-                                    //       images[index],
-                                    //       width: 500,
-                                    //       height: 150,
-                                    //       fit: BoxFit.contain,
-                                    //     )),
-                                    Align(
-                                      child: Expanded(
-                                        child: Container(
-                                          margin: EdgeInsets.only(
-                                              top: 130, right: 4),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional.centerEnd,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            }),
+          SizedBox(height: 10),
+          Stack(
+            children: [
+              Container(
+                height: 150,
+                // width: 500,
+                child: PageView.builder(
+                    onPageChanged: (value) {
+                      setState(() {
+                        index = value;
+                      });
+                    },
+                    itemCount: images.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        // height: double.infinity,
+                        alignment: Alignment.center,
+                        // This is needed
+                        child: Image.asset(
+                          images[index],
+                          fit: BoxFit.fill,
+                          // width: 300,
+                          // height: 300,
+                        ),
+                      );
+                    }),
+              ),
+              Positioned(
+                bottom: 15,
+                right: 55,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 3, 0),
+                      child: CircleAvatar(
+                        radius: 3,
+                        backgroundColor:
+                        index == 0 ? Colors.white : Colors.white54,
                       ),
                     ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(287, 130, 0, 0),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 0, 3, 0),
-                          child: CircleAvatar(
-                            radius: 3,
-                            backgroundColor:
-                                index == 0 ? Colors.white : Colors.white54,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 0, 3, 0),
-                          child: CircleAvatar(
-                            radius: 3,
-                            backgroundColor:
-                                index == 1 ? Colors.white : Colors.white54,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 0, 3, 0),
-                          child: CircleAvatar(
-                            radius: 3,
-                            backgroundColor:
-                                index == 2 ? Colors.white : Colors.white54,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 0, 3, 0),
-                          child: CircleAvatar(
-                            radius: 3,
-                            backgroundColor:
-                                index == 3 ? Colors.white : Colors.white54,
-                          ),
-                        )
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 3, 0),
+                      child: CircleAvatar(
+                        radius: 3,
+                        backgroundColor:
+                        index == 1 ? Colors.white : Colors.white54,
+                      ),
                     ),
-                  ),
-                  Container(
-                    width: 330,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black12, width: 1),
-                        borderRadius: BorderRadius.all(Radius.circular(30)),
-                        color: Colors.white),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 3, 0),
+                      child: CircleAvatar(
+                        radius: 3,
+                        backgroundColor:
+                        index == 2 ? Colors.white : Colors.white54,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 3, 0),
+                      child: CircleAvatar(
+                        radius: 3,
+                        backgroundColor:
+                        index == 3 ? Colors.white : Colors.white54,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Container(
+            width: 330,
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.black12, width: 1),
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                color: Colors.white),
+            height: 50,
+            margin: EdgeInsets.only(top: 16, left: 40, right: 40),
+            child: Row(
+              children: [
+                Container(
+                    margin: EdgeInsets.only(left: 30),
+                    child: Text("وصل حديثا",
+                        style: TextStyle(color: Colors.black45))),
+                Container(
+                    margin: EdgeInsets.only(left: 40),
+                    child: Text(
+                      "الأكثر مبيعاً",
+                      style: TextStyle(color: Colors.black45),
+                    )),
+                Align(
+                  child: Container(
+                    margin: EdgeInsets.only(left: 12),
+                    alignment: AlignmentDirectional.topCenter,
+                    width: 80,
                     height: 50,
-                    margin: EdgeInsets.only(top: 160, left: 40, right: 40),
-                    child: Row(
+                    decoration: BoxDecoration(
+                        color: Color(0xff957255),
+                        borderRadius:
+                            BorderRadius.all(Radius.circular(30))),
+                    child: Align(
+                        alignment: AlignmentDirectional.center,
+                        child: Text(
+                          "العروض",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white, fontSize: 18),
+                        )),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 10,),
+          Expanded(
+            child: GridView.builder(
+                gridDelegate:
+                    SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisSpacing: 15,
+                        mainAxisSpacing: 15,
+                        crossAxisCount: 2,
+                        childAspectRatio: 2 / 2.6),
+                itemCount: list.length,
+                itemBuilder: (BuildContext ctx, index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius:
+                            BorderRadius.all(Radius.circular(20))),
+                    child: Stack(
                       children: [
                         Container(
-                            margin: EdgeInsets.only(left: 30),
-                            child: Text("وصل حديثا",
-                                style: TextStyle(color: Colors.black45))),
-                        Container(
-                            margin: EdgeInsets.only(left: 40),
-                            child: Text(
-                              "الأكثر مبيعاً",
-                              style: TextStyle(color: Colors.black45),
-                            )),
-                        Align(
-                          child: Container(
-                            margin: EdgeInsets.only(left: 12),
-                            alignment: AlignmentDirectional.topCenter,
-                            width: 80,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: Color(0xff957255),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30))),
-                            child: Align(
-                                alignment: AlignmentDirectional.center,
-                                child: Text(
-                                  "العروض",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 18),
-                                )),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        margin: EdgeInsets.only(top: 120),
-                        child: GridView.builder(
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisSpacing: 0,
-                                    mainAxisSpacing: 0,
-                                    crossAxisCount: 2,
-                                    childAspectRatio: 2 / 4),
-                            itemCount: list.length,
-                            itemBuilder: (BuildContext ctx, index) {
-                              return Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20))),
-                                width: 159,
-                                height: 255,
-                                margin: EdgeInsets.only(
-                                    top: 100, left: 10, right: 10),
-                                child: Stack(
-                                  children: [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          color: Color(0xffF4DDC5),
-                                          borderRadius: BorderRadius.all(
+                          decoration: BoxDecoration(
+                              color: Color(0xffF4DDC5),
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(20))),
+                          width: 180,
+                          height: 126,
+                          child: Stack(
+                            children: [
+                              Container(
+                                  alignment:
+                                      AlignmentDirectional.topEnd,
+                                  margin: EdgeInsets.only(
+                                      left: 110, top: 10),
+                                  width: 40,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(
                                               Radius.circular(20))),
-                                      width: 180,
-                                      height: 126,
-                                      child: Stack(
-                                        children: [
-                                          Container(
-                                              alignment:
-                                                  AlignmentDirectional.topEnd,
-                                              margin: EdgeInsets.only(
-                                                  left: 110, top: 10),
-                                              width: 40,
-                                              height: 40,
-                                              decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(20))),
-                                              child: Align(
-                                                  child: Icon(
-                                                      Icons.favorite_border))),
-                                          Container(
-                                              margin: EdgeInsets.only(
-                                                  left: 10, top: 10),
-                                              child: Image.asset(
-                                                  list[index].image as String)),
-                                          Container(
-                                            margin: EdgeInsets.only(
-                                                top: 55, left: 7),
-                                            width: 36,
-                                            height: 20,
-                                            decoration: BoxDecoration(
-                                                color: list[index].sale == ""
-                                                    ? Colors.transparent
-                                                    : Color(0xffCE2621),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(8))),
-                                            child: Column(
-                                              children: <Widget>[
-                                                if (list[index].sale == "")
-                                                  Expanded(
-                                                      child: Text(
-                                                    "",
-                                                  )),
-                                                Text(list[index].sale as String,
-                                                    style: TextStyle(
-                                                        color: Colors.white))
-                                              ],
+                                  child: Align(
+                                      child: Icon(
+                                          Icons.favorite_border))),
+                              Container(
+                                  margin: EdgeInsets.only(
+                                      left: 10, top: 10),
+                                  child: Image.asset(
+                                      list[index].image as String)),
+                              Container(
+                                margin: EdgeInsets.only(
+                                    top: 55, left: 7),
+                                width: 36,
+                                height: 20,
+                                decoration: BoxDecoration(
+                                    color: list[index].sale == ""
+                                        ? Colors.transparent
+                                        : Color(0xffCE2621),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(8))),
+                                child: Column(
+                                  children: <Widget>[
+                                    if (list[index].sale == "")
+                                      Expanded(
+                                          child: Text(
+                                        "",
+                                      )),
+                                    Text(list[index].sale as String,
+                                        style: TextStyle(
+                                            color: Colors.white))
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(
+                                    top: 90, left: 7),
+                                width: 51,
+                                height: 21,
+                                decoration: BoxDecoration(
+                                    color: list[index].news == ""
+                                        ? Colors.transparent
+                                        : Color(0xff00AE3B),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(8))),
+                                child: Row(
+                                  children: <Widget>[
+                                    if (list[index].news == "")
+                                      Expanded(
+                                          child: Text(
+                                        "",
+                                      )),
+                                    Container(
+                                      child: Text(
+                                          list[index].news
+                                              as String,
+                                          style: TextStyle(
+                                              color: Colors.white)),
+                                      margin:
+                                          EdgeInsets.only(left: 7),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Visibility(
+                                          child: Container(
+                                            child: Icon(
+                                              Icons.star,
+                                              color: Color(
+                                                0xffFFF500,
+                                              ),
+                                              size: 18,
                                             ),
                                           ),
-                                          Container(
-                                            margin: EdgeInsets.only(
-                                                top: 90, left: 7),
-                                            width: 51,
-                                            height: 21,
-                                            decoration: BoxDecoration(
-                                                color: list[index].news == ""
-                                                    ? Colors.transparent
-                                                    : Color(0xff00AE3B),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(8))),
-                                            child: Row(
-                                              children: <Widget>[
-                                                if (list[index].news == "")
-                                                  Expanded(
-                                                      child: Text(
-                                                    "",
-                                                  )),
-                                                Container(
-                                                  child: Text(
-                                                      list[index].news
-                                                          as String,
-                                                      style: TextStyle(
-                                                          color: Colors.white)),
-                                                  margin:
-                                                      EdgeInsets.only(left: 7),
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Visibility(
-                                                      child: Container(
-                                                        child: Icon(
-                                                          Icons.star,
-                                                          color: Color(
-                                                            0xffFFF500,
-                                                          ),
-                                                          size: 18,
-                                                        ),
-                                                      ),
-                                                      visible:
-                                                          list[index].news == ""
-                                                              ? false
-                                                              : true,
-                                                    ),
-                                                  ],
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          Container(
-                                            margin: EdgeInsets.only(
-                                                top: 90, left: 100),
-                                            width: 51,
-                                            height: 21,
-                                            decoration: BoxDecoration(
-                                                color: list[index].trend == ""
-                                                    ? Colors.transparent
-                                                    : Color(0xffFFF500),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(8))),
-                                            child: Row(
-                                              children: <Widget>[
-                                                if (list[index].trend == "")
-                                                  Expanded(
-                                                      child: Text(
-                                                    "",
-                                                  )),
-                                                Container(
-                                                  margin:
-                                                      EdgeInsets.only(left: 7),
-                                                  child: Text(
-                                                      list[index].trend
-                                                          as String,
-                                                      style: TextStyle(
-                                                          color: Colors.black)),
-                                                ),
-                                                Container(
-                                                  width: 22,
-                                                  height: 22,
-                                                  child: Visibility(
-                                                    child: Icon(
-                                                      Icons
-                                                          .local_fire_department_outlined,
-                                                      color: Color(
-                                                        0xffD23A35,
-                                                      ),
-                                                      size: 18,
-                                                    ),
-                                                    visible:
-                                                        list[index].trend == ""
-                                                            ? false
-                                                            : true,
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      ),
+                                          visible:
+                                              list[index].news == ""
+                                                  ? false
+                                                  : true,
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(
+                                    top: 90, left: 100),
+                                width: 51,
+                                height: 21,
+                                decoration: BoxDecoration(
+                                    color: list[index].trend == ""
+                                        ? Colors.transparent
+                                        : Color(0xffFFF500),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(8))),
+                                child: Row(
+                                  children: <Widget>[
+                                    if (list[index].trend == "")
+                                      Expanded(
+                                          child: Text(
+                                        "",
+                                      )),
+                                    Container(
+                                      margin:
+                                          EdgeInsets.only(left: 7),
+                                      child: Text(
+                                          list[index].trend
+                                              as String,
+                                          style: TextStyle(
+                                              color: Colors.black)),
                                     ),
                                     Container(
-                                        margin:
-                                            EdgeInsets.only(top: 140, left: 80),
-                                        child: Text(
-                                          list[index].name as String,
-                                          style: TextStyle(
-                                              color: Color(0xff818181)),
-                                        )),
-                                    Container(
-                                        margin: EdgeInsets.only(
-                                            top: 170, left: 111),
-                                        child:
-                                            Text(list[index].type as String)),
-                                    Container(
-                                        margin: EdgeInsets.only(
-                                            top: 200, left: 110),
-                                        child: Text(
-                                          list[index].price as String,
-                                          style: TextStyle(
-                                              decoration:
-                                                  TextDecoration.lineThrough,
-                                              color: Color(0xff818181)),
-                                        )),
-                                    Container(
-                                        margin:
-                                            EdgeInsets.only(top: 198, left: 75),
-                                        child: Text(
-                                          list[index].price_sale as String,
-                                          style: TextStyle(
-                                              color: Color(0xff957255),
-                                              fontSize: 18),
-                                        )),
-                                    Container(
-                                      width: 36,
-                                      height: 36,
-                                      margin: EdgeInsets.only(top: 220),
-                                      decoration: BoxDecoration(
-                                          color: Color(0xffF2F1EF),
-                                          borderRadius: BorderRadius.only(
-                                              topRight: Radius.circular(10),
-                                              bottomLeft: Radius.circular(10))),
-                                      child: Icon(
-                                        Icons.add_shopping_cart,
-                                        color: Color(0xff957255),
-                                        size: 20,
+                                      width: 22,
+                                      height: 22,
+                                      child: Visibility(
+                                        child: Icon(
+                                          Icons
+                                              .local_fire_department_outlined,
+                                          color: Color(
+                                            0xffD23A35,
+                                          ),
+                                          size: 18,
+                                        ),
+                                        visible:
+                                            list[index].trend == ""
+                                                ? false
+                                                : true,
                                       ),
                                     )
                                   ],
                                 ),
-                              );
-                            }),
-                      ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                            margin:
+                                EdgeInsets.only(top: 140, left: 80),
+                            child: Text(
+                              list[index].name as String,
+                              style: TextStyle(
+                                  color: Color(0xff818181)),
+                            )),
+                        Container(
+                            margin: EdgeInsets.only(
+                                top: 170, left: 111),
+                            child:
+                                Text(list[index].type as String)),
+                        Container(
+                            margin: EdgeInsets.only(
+                                top: 200, left: 110),
+                            child: Text(
+                              list[index].price as String,
+                              style: TextStyle(
+                                  decoration:
+                                      TextDecoration.lineThrough,
+                                  color: Color(0xff818181)),
+                            )),
+                        Container(
+                            margin:
+                                EdgeInsets.only(top: 198, left: 75),
+                            child: Text(
+                              list[index].price_sale as String,
+                              style: TextStyle(
+                                  color: Color(0xff957255),
+                                  fontSize: 18),
+                            )),
+                        Container(
+                          width: 36,
+                          height: 36,
+                          margin: EdgeInsets.only(top: 220),
+                          decoration: BoxDecoration(
+                              color: Color(0xffF2F1EF),
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10))),
+                          child: Icon(
+                            Icons.add_shopping_cart,
+                            color: Color(0xff957255),
+                            size: 20,
+                          ),
+                        )
+                      ],
                     ),
-                  ),
-                ],
-              ),
-            ),
+                  );
+                }),
           ),
         ],
       ),
